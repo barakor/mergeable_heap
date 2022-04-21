@@ -1,0 +1,14 @@
+foreigns
+insert 0
+insert 8
+insert 4
+insert 3
+extract-min
+extract-min
+make-heap
+insert 2
+insert 0
+insert 4
+extract-min
+union
+extract-min
