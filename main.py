@@ -386,17 +386,18 @@ class SortedMergableHeap():
         return merge_into
 
 
-
-# import MergableHeap.MergableHeap as MergableHeap
-# from SortedMergableHeap import SortedMergableHeap
-# import utils
-
 def sorted_insert(sorted_heaps, val):
     return sorted_heaps[-1].insert_ordered(val)
+
+
 def sorted_minimum(sorted_heaps):
     return sorted_heaps[-1].minimum().val
+
+
 def sorted_ext_min(sorted_heaps):
     return sorted_heaps[-1].extract_minimum().val
+
+
 def sorted_merge(sorted_heaps):
     if len(sorted_heaps)<2:
         return sorted_heaps
@@ -406,12 +407,19 @@ def sorted_merge(sorted_heaps):
             base = base.merge(sorted_heaps[i])
         return base
     
+
 def unsorted_insert(heaps, val):
     return heaps[-1].insert(val)
+
+
 def unsorted_minimum(heaps):
     return heaps[-1].minimum().val
+
+
 def unsorted_ext_min(heaps):
     return heaps[-1].extract_minimum().val
+
+
 def unsorted_merge(heaps):
     if len(heaps)<2:
         return heaps
@@ -421,6 +429,7 @@ def unsorted_merge(heaps):
             base = base.merge(heaps[i])
         return base
     
+
 def foreign_insert(heaps, val):
     for i in range(len(heaps)-1):
         heap = heaps[i]
@@ -429,10 +438,16 @@ def foreign_insert(heaps, val):
             print(f"The value {val} is already in a heap ({i})")
             return False
     return heaps[-1].insert(val)
+
+
 def foreign_minimum(heaps):
     return heaps[-1].minimum().val
+
+
 def foreign_ext_min(heaps):
     return heaps[-1].extract_minimum().val
+
+
 def foreign_merge(heaps):
     if len(heaps)<2:
         return heaps
@@ -442,6 +457,7 @@ def foreign_merge(heaps):
             base = base.merge(heaps[i])
         return base
     
+
 list_type = {
     "sorted": {"make-heap":SortedMergableHeap, "insert":sorted_insert, "print":print,
                "minimum": sorted_minimum, "extract-min": sorted_ext_min, "union":sorted_merge},
@@ -450,6 +466,7 @@ list_type = {
     "foreigns":{"make-heap":MergableHeap, "insert":foreign_insert, "print":print, 
                      "minimum":foreign_minimum , "extract-min": foreign_ext_min, "union":foreign_merge}
 }
+
 
 def exec_cmd(heaps,ltf, f, args):
     if f == "make-heap":
@@ -475,6 +492,8 @@ def exec_cmd(heaps,ltf, f, args):
     print("list state: ", end = "")
     print(heaps[-1])
     return heaps
+
+# Main 
 
 heaps = []
 print(os.getcwd())
